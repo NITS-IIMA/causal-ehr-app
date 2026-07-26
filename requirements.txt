@@ -1,0 +1,26 @@
+# ============================================================================
+# Causal ML & Measurement Framework — runtime dependencies
+# Python >= 3.10.  Lower bounds below are the versions this repo is verified
+# against (see "Verified with" comments); newer patch/minor releases are allowed.
+# ============================================================================
+
+# --- Core scientific stack ---
+numpy>=1.26           # verified 2.2.6
+pandas>=2.2           # verified 2.3.3
+scipy>=1.13           # verified 1.15.3
+scikit-learn>=1.5     # verified 1.6.1
+
+# --- Causal inference ---
+dowhy>=0.11           # verified 0.14  — backdoor identification + refutation
+econml>=0.15          # verified 0.16.0 — LinearDML (ATE) + CausalForestDML (CATE)
+
+# --- Config ---
+pyyaml>=6.0           # verified 6.0.3 — frozen pre-registration (experiment.yaml)
+
+# --- Reporting / app ---
+matplotlib>=3.9       # verified 3.10.9 — CATE plots in the Streamlit app
+streamlit>=1.37       # interactive individualized-effect explorer
+reportlab>=4.2        # verified 4.5.1 — circulation-ready PDF report
+
+# --- Testing / QA ---
+pytest>=8.3           # verified 9.1.1

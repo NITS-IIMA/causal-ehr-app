@@ -1,0 +1,49 @@
+# ============================================================================
+# Deterministic line endings across Windows / macOS / Linux
+# ============================================================================
+# Default: let Git detect text and normalize to LF in the repo.
+* text=auto eol=lf
+
+# Explicit text types -> always LF (safe for Linux CI runners & Docker)
+*.py     text eol=lf
+*.md     text eol=lf
+*.txt    text eol=lf
+*.yaml   text eol=lf
+*.yml    text eol=lf
+*.toml   text eol=lf
+*.cfg    text eol=lf
+*.ini    text eol=lf
+*.json   text eol=lf
+*.csv    text eol=lf
+*.sh     text eol=lf
+*.gitignore     text eol=lf
+*.gitattributes text eol=lf
+
+# Windows-only scripts must keep CRLF or they won't run
+*.bat    text eol=crlf
+*.ps1    text eol=crlf
+*.cmd    text eol=crlf
+
+# ============================================================================
+# Binary files — never touch line endings or diff as text
+# ============================================================================
+*.pdf    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.zip    binary
+*.gz     binary
+*.pkl    binary
+*.joblib binary
+*.parquet binary
+*.sqlite binary
+*.ttf    binary
+*.woff   binary
+
+# ============================================================================
+# GitHub language stats: don't count generated artifacts/docs
+# ============================================================================
+CLINICAL_CAUSAL_EVALUATION_REPORT.* linguist-generated=true
+MODEL_CARD.md                        linguist-documentation=true
+decision_report.json                 linguist-generated=true

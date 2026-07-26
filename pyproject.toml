@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "causal-ehr-app"
+version = "1.0.0"
+description = "Causal ML & Measurement Framework: individualized treatment-effect estimation with a pre-registered GO/NO-GO decision gate (early vasopressor timing in septic shock, MIMIC-IV)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "NITS" }]
+keywords = ["causal-inference", "double-machine-learning", "dowhy", "econml",
+            "clinical-ai", "mimic-iv", "treatment-effect", "e-value"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scipy>=1.13",
+    "scikit-learn>=1.5",
+    "dowhy>=0.11",
+    "econml>=0.15",
+    "pyyaml>=6.0",
+    "matplotlib>=3.9",
+    "reportlab>=4.2",
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.37"]
+dev = ["pytest>=8.3"]
+
+[project.urls]
+Homepage = "https://github.com/NITS-IIMA/causal-ehr-app"
+Repository = "https://github.com/NITS-IIMA/causal-ehr-app"
+Issues = "https://github.com/NITS-IIMA/causal-ehr-app/issues"
+
+[project.scripts]
+causal-ehr = "pipeline:main"
+
+[tool.setuptools]
+py-modules = ["pipeline"]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

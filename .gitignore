@@ -1,0 +1,102 @@
+# ============================================================================
+# Raw / patient data  — NEVER commit EHR data (PhysioNet DUA prohibits it)
+# ============================================================================
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.sqlite
+*.sqlite3
+*.db
+*.dta
+*.sas7bdat
+data/
+raw/
+mimic/
+mimic-iv/
+physionet.org/
+*.gz
+*.zip
+
+# ============================================================================
+# Model checkpoints / artifacts / large binaries
+# ============================================================================
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+*.model
+checkpoints/
+mlruns/
+artifacts/
+
+# Generated run outputs (regenerate with `python pipeline.py`)
+# NOTE: keep the sample MODEL_CARD.md / report templates under version control;
+# ignore only machine-written run outputs.
+decision_report.json
+
+# ============================================================================
+# Secrets & credentials — never commit
+# ============================================================================
+.env
+.env.*
+*.pem
+*.key
+*.crt
+secrets.*
+credentials.*
+*_credentials.json
+.aws/
+.gcp/
+service-account*.json
+
+# ============================================================================
+# Python
+# ============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.log
+.coverage
+htmlcov/
+.tox/
+
+# ============================================================================
+# Virtual environments
+# ============================================================================
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# ============================================================================
+# IDE / editor / OS
+# ============================================================================
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ============================================================================
+# Jupyter
+# ============================================================================
+.ipynb_checkpoints/
+
+# Exception: analytics snapshots are safe to commit (aggregate counts, no PHI)
+!traffic/*.csv
+!traffic/.gitkeep

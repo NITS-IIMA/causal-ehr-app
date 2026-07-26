@@ -1,0 +1,63 @@
+# ============================================================================
+# PRE-REGISTRATION / ANALYSIS PLAN  (freeze this file BEFORE modeling)
+# Individualized effect of early vasopressor initiation on 28-day ICU mortality
+# ============================================================================
+meta:
+  study_id: "CAUSAL-EHR-2026-VASO"
+  hypothesis: >
+    Among adult ICU patients with septic shock, early vasopressor initiation
+    (<= 6h from shock onset) reduces 28-day mortality relative to delayed
+    initiation, with clinically meaningful heterogeneity across baseline
+    severity (SOFA) and lactate.
+  frozen_on: "2026-07-25"
+
+estimand:
+  treatment: "early_vasopressor"        # binary 1 = <=6h, 0 = >6h
+  outcome: "mortality_28d"              # binary 1 = died
+  effect_measure: "risk_difference"     # ATE on probability scale
+  target_population: "adult septic shock, first ICU stay"
+  confounders:
+    - age
+    - sofa_score
+    - lactate
+    - mean_arterial_pressure
+    - comorbidity_index
+    - baseline_creatinine
+  effect_modifiers:                     # pre-declared CATE dimensions
+    - sofa_score
+    - lactate
+
+primary_kpi:
+  name: "ATE_risk_difference"
+  direction: "lower_is_better"
+  success_threshold: -0.03              # >= 3 absolute pp mortality reduction
+  # GO only if the 95% CI upper bound is below 0 (excludes null).
+
+power:
+  alpha: 0.05
+  power: 0.80
+  baseline_event_rate: 0.32
+  minimum_detectable_effect: 0.03
+
+guardrails:
+  - name: "acute_kidney_injury_rate"
+    direction: "lower_is_better"
+    max_tolerated_increase: 0.02
+  - name: "limb_ischemia_rate"
+    direction: "lower_is_better"
+    max_tolerated_increase: 0.01
+  - name: "positivity_min_propensity"
+    threshold: 0.05
+  - name: "positivity_max_propensity"
+    threshold: 0.95
+
+refutation_gate:
+  placebo_treatment:   { must_pass: true, tolerance: 0.01 }
+  random_common_cause: { must_pass: true, tolerance: 0.01 }
+  data_subset:         { must_pass: true, tolerance: 0.02 }
+
+repro:
+  seed: 20260725
+  n_patients: 12000
+  test_size: 0.30
+  n_folds: 5
