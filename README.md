@@ -90,7 +90,7 @@ _Verified run, synthetic-validation cohort (n = 12,000), seed 20260725._
 | **E-value** | **1.66** point / **1.48** at CI bound | Confounder-T and confounder-Y RR needed to explain away the effect |
 | **Propensity AUC** | **0.738** | Treatment strongly predictable from severity -> real confounding |
 | **Post-weighting balance** | **all \|SMD\| < 0.10** | IPW weighting achieves covariate balance |
-| Number needed to treat | **~ 17** | ~1 death averted per 17 patients treated early |
+| Number needed to treat | **17** | ~1 death averted per 17 patients treated early |
 
 ---
 
