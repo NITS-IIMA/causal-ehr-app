@@ -208,4 +208,44 @@ Released under the [MIT License](LICENSE).
 
 ## Citation
 
-If this framework informs your work, please cite the repository and the underlying methods: DoWhy (Sharma & Kiciman), EconML (Microsoft Research), and the E-value (VanderWeele & Ding, *Ann Intern Med* 2017).
+If this framework informs your work, please cite the repository together with the foundational methods, software, and data it builds on.
+
+**This repository**
+
+```bibtex
+@software{nitin_causal_ehr_framework_2026,
+  author  = {Nitin, Dr.},
+  title   = {Causal ML \& Measurement Framework for Clinical Interventions},
+  year    = {2026},
+  version = {1.0.2},
+  url     = {https://github.com/NITS-IIMA/causal-ehr-app}
+}
+```
+
+**Causal identification & framework**
+
+- Pearl, J. (2009). *Causality: Models, Reasoning, and Inference* (2nd ed.). Cambridge University Press.
+- Hernán, M. A., & Robins, J. M. (2020). *Causal Inference: What If*. Boca Raton: Chapman & Hall/CRC.
+
+**Estimation methods**
+
+- Rosenbaum, P. R., & Rubin, D. B. (1983). The central role of the propensity score in observational studies for causal effects. *Biometrika*, 70(1), 41–55.
+- Robins, J. M., Hernán, M. Á., & Brumback, B. (2000). Marginal structural models and causal inference in epidemiology. *Epidemiology*, 11(5), 550–560.
+- Chernozhukov, V., Chetverikov, D., Demirer, M., Duflo, E., Hansen, C., Newey, W., & Robins, J. (2018). Double/debiased machine learning for treatment and structural parameters. *The Econometrics Journal*, 21(1), C1–C68.
+- Wager, S., & Athey, S. (2018). Estimation and inference of heterogeneous treatment effects using random forests. *Journal of the American Statistical Association*, 113(523), 1228–1242.
+- Athey, S., Tibshirani, J., & Wager, S. (2019). Generalized random forests. *The Annals of Statistics*, 47(2), 1148–1178.
+
+**Sensitivity analysis**
+
+- Rosenbaum, P. R. (2002). *Observational Studies* (2nd ed.). New York: Springer.
+- VanderWeele, T. J., & Ding, P. (2017). Sensitivity analysis in observational research: introducing the E-value. *Annals of Internal Medicine*, 167(4), 268–274.
+
+**Software**
+
+- Sharma, A., & Kiciman, E. (2020). DoWhy: An end-to-end library for causal inference. *arXiv:2011.04216*.
+- Battocchi, K., Dillon, E., Hei, M., Lewis, G., Oka, P., Oprescu, M., & Syrgkanis, V. (2019). *EconML: A Python Package for ML-Based Heterogeneous Treatment Effects Estimation*. Microsoft Research. https://github.com/py-why/EconML
+
+**Clinical data & definitions**
+
+- Johnson, A. E. W., Bulgarelli, L., Shen, L., et al. (2023). MIMIC-IV, a freely accessible electronic health record dataset. *Scientific Data*, 10, 1. https://doi.org/10.1038/s41597-022-01899-x
+- Singer, M., Deutschman, C. S., Seymour, C. W., et al. (2016). The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). *JAMA*, 315(8), 801–810.
